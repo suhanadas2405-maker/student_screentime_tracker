@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Screen-Time Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Screen-Time Tracker</h1>
+
+    <p class="subtitle">
+        Monitor and manage daily app usage
+    </p>
+
+
+    <!-- STUDENT -->
+
+    <section>
+
+        <h2>Student Information</h2>
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Student Name">
+
+        <input
+            type="email"
+            id="studentEmail"
+            placeholder="Email">
+
+        <button id="addStudentButton">
+            Add Student
+        </button>
+
+        <p id="studentMessage"></p>
+
+    </section>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="card">
+
+            <h3>Today's Usage</h3>
+
+            <p id="totalUsage">
+                0 min
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Apps Tracked</h3>
+
+            <p id="appsTracked">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Over Limit</h3>
+
+            <p id="appsExceeded">
+                0
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- APP SELECTION -->
+
+    <section>
+
+        <h2>Select Apps to Track</h2>
+
+        <p>
+            Choose the apps you want to monitor.
+        </p>
+
+        <div
+            id="appSelection"
+            class="selection-box">
+
+            Loading...
+
+        </div>
+
+    </section>
+
+
+    <!-- LIMITS -->
+
+    <section>
+
+        <h2>Daily Limits</h2>
+
+        <div id="limitSettings">
+
+            <p>
+                Select an app above.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <button
+        id="saveSettings"
+        class="save-button">
+
+        Save Tracking Settings
+
+    </button>
+
+    <p id="saveMessage"></p>
+
+
+    <!-- USAGE -->
+
+    <section>
+
+        <h2>Record Usage</h2>
+
+        <select id="usageApp">
+
+            <option value="">
+                Select App
+            </option>
+
+        </select>
+
+
+        <input
+            type="number"
+            id="usageMinutes"
+            min="0"
+            placeholder="Minutes">
+
+
+        <button id="recordUsage">
+            Record Usage
+        </button>
+
+        <p id="usageMessage"></p>
+
+    </section>
+
+
+    <!-- TODAY -->
+
+    <section>
+
+        <h2>Today's Usage</h2>
+
+        <div id="appUsage">
+
+            No usage recorded.
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY -->
+
+    <section>
+
+        <h2>Usage History</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+                    <th>App</th>
+                    <th>Usage</th>
+                    <th>Limit</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="historyTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>
